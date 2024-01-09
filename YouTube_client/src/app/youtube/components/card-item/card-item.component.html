@@ -1,0 +1,27 @@
+
+<div class="search-result-item" [ngClass]="
+  checkDate()
+">
+  <div class="thumbnail">
+    <img [src]="cardItem.link" alt="Video Thumbnail">
+  </div>
+  <div class="info">
+    <h3 class="title"> {{cardItem.title}} </h3>
+    <div class="stats">
+      <div class="stat">
+        
+        <p> {{cardItem.description}} </p>
+      </div>
+      <div class="stat">        
+        <p> {{cardItem.linkVideo}} </p>
+      </div>      
+      <div class="stat">
+        date:   
+        <p> {{cardItem.date | date}} </p>
+      </div>
+      
+    </div>
+    <button class="more-button" (click)="moreInfo()">More</button>
+    <button class="more-button" (click)="deleteCard()">Delete</button>
+  </div>
+</div>

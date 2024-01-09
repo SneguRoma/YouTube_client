@@ -1,0 +1,35 @@
+<header class="header">
+  <div class="logo">Logo</div>
+  <div class="search">
+    <input type="text" placeholder="Search" [(ngModel)]="searchText" (input)="search()"/>
+    
+  </div>
+  <div class="settings">
+    <button (click)="openSettings()">
+      <img src="assets/search_settings.svg" alt="Settings" />
+    </button>
+  </div>
+  <div class="search">
+    <button (click)="searchPage()">
+      Search page
+    </button>
+  </div>
+  <div class="search">
+    <button (click)="favorite()">
+      Favorite page
+    </button>
+  </div>
+  <div class="search">
+    <button (click)="openAdmin()">
+      add new card
+    </button>
+  </div>
+  <div class="login-info">
+    <p *ngIf="name">Welcome, {{ name }}</p>
+    <button (click)="login()">
+      <p *ngIf="name">log out</p>
+    <p *ngIf="!name"> log in</p>
+    </button>
+  </div>
+  
+</header>

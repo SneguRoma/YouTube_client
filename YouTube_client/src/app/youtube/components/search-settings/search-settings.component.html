@@ -1,0 +1,6 @@
+<div class="filtering-criteria-block" *ngIf="isFilteringEnabled">
+  <button (click)="setSortCriterion('criterion1')">Criterion 1</button>
+  <button (click)="setSortCriterion('criterion2')">Criterion 2</button>
+    
+  <input [(ngModel)]="keyword" (input)="applyFilter()" placeholder="Filter by word or sentence" />
+</div>

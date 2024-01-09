@@ -1,0 +1,10 @@
+<div *ngIf="results">
+  
+  
+  <div *ngFor="let result of results ">
+    <app-search-item   
+      [videoItem]="result"
+    ></app-search-item>
+  </div>
+</div>
+<ng-template> </ng-template>

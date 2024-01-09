@@ -1,0 +1,143 @@
+<div *ngIf="isAuth" class="login-container">
+  <h2>Create new card</h2>
+  <form [formGroup]="adminForm" (ngSubmit)="createCard()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        formControlName="title"
+        [ngClass]="{ 'error-border': title?.touched && title?.invalid }"
+      />
+      <div [hidden]="title?.touched" [style.color]="'blue'">
+        Please enter a title
+      </div>
+      <div class="error">
+        <div *ngIf="title?.touched && title?.errors?.['required']">
+          Title is required
+        </div>
+        <div *ngIf="title?.touched && title?.errors?.['minlength']">
+          The title is too short
+        </div>
+        <div *ngIf="title?.touched && title?.errors?.['maxlength']">
+          The title is too long
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        type="text"
+        id="description"
+        name="description"
+        formControlName="description"
+        [ngClass]="{ 'error-border': description?.touched && description?.invalid }"
+      />
+      <div [hidden]="description?.touched" [style.color]="'blue'">
+        Please enter a description
+      </div>
+      <div class="error">
+        <div *ngIf="description?.touched && description?.errors?.['maxlength']">
+          The description is too long
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="link">Link</label>
+      <input
+        type="text"
+        id="link"
+        name="link"
+        formControlName="link"
+        [ngClass]="{ 'error-border': link?.touched && link?.invalid }"
+      />
+      <div [hidden]="link?.touched" [style.color]="'blue'">
+        Please enter a link
+      </div>
+      <div class="error">
+        <div *ngIf="link?.touched && link?.errors?.['required']">
+          The link to image is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="linkVideo">Link to video</label>
+      <input
+        type="text"
+        id="linkVideo"
+        name="linkVideo"
+        formControlName="linkVideo"
+        [ngClass]="{ 'error-border': linkVideo?.touched && linkVideo?.invalid }"
+      />
+      <div [hidden]="linkVideo?.touched" [style.color]="'blue'">
+        Please enter a link to Video
+      </div>
+      <div class="error">
+        <div *ngIf="linkVideo?.touched && linkVideo?.errors?.['required']">
+          The link to Video is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input
+        type="date"
+        id="date"
+        name="date"
+        formControlName="date"
+        [ngClass]="{ 'error-border': date?.touched && date?.invalid }"
+      />
+      <div [hidden]="date?.touched" [style.color]="'blue'">
+        Please enter a date
+      </div>
+      <div
+        *ngIf="date?.touched && date?.errors?.['required']"
+        [style.color]="'red'"
+      >
+        date is required
+      </div>
+      <div
+        *ngIf="date?.touched && date?.errors?.['futureDate']"
+        [style.color]="'red'"
+      >
+        The date is invalid
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Tags</label>
+      <div formArrayName="tags">
+        <div *ngFor="let tag of tags; let i = index">
+          <div [formGroupName]="i">
+            <input
+              type="text"
+              formControlName="tag"
+              [ngClass]="{ 'error-border': tag?.touched && tag?.invalid }"
+            />
+            <div
+              *ngIf="tag?.touched && tag?.errors?.['required']"
+              [style.color]="'red'"
+            >
+              Tag is required
+            </div>
+          </div>
+          <button
+            type="button"
+            (click)="removeTagInput(i)"
+            *ngIf="tags.length > 1"
+          >
+            Remove Tag
+          </button>
+        </div>
+      </div>
+      <button type="button" (click)="addTagInput()" *ngIf="tags.length < 5">
+        Add Tag
+      </button>
+    </div>
+
+    <button type="button" (click)="resetForm()">Reset</button>
+
+    <button [disabled]="adminForm.invalid" type="submit">Create card</button>
+  </form>
+</div>

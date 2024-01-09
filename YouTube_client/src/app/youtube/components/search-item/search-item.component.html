@@ -1,0 +1,35 @@
+
+<div class="search-result-item" [ngClass]="
+  checkDate()
+">
+  <div class="thumbnail">
+    <img [src]="videoItem.snippet.thumbnails.medium.url" alt="Video Thumbnail">
+  </div>
+  <div class="info">
+    <h3 class="title"> {{videoItem.snippet.title}} </h3>
+    <div class="stats">
+      <div class="stat">
+        <img src="assets/viewed.svg" alt="Views Icon">
+        <p> {{videoItem.statistics.viewCount}} </p>
+      </div>
+      <div class="stat">
+        <img src="assets/liked.svg" alt="Likes Icon">
+        <p> {{videoItem.statistics.likeCount}} </p>
+      </div>
+      <div class="stat">
+        <img src="assets/dislike.svg" alt="Dislikes Icon">
+        <p> {{videoItem.statistics.dislikeCount}} </p>
+      </div>
+      <div class="stat">
+        <img src="assets/Group9.svg" alt="Comments Icon">
+        <p> {{videoItem.statistics.commentCount}} </p>
+      </div>
+      <div class="stat">
+        date:   
+        <p> {{videoItem.snippet.publishedAt | date}} </p>
+      </div>
+    </div>
+    <button class="more-button" [ngClass]="{'red': videoItem.isFavorite}" (click)="addToFavourite()">Favorite</button>
+    <button class="more-button" (click)="moreInfo()">More</button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div *ngIf="results">
+  <div *ngFor="let card of cards">
+    <app-card-item [cardItem]="card"></app-card-item>
+  </div>
+  <div *ngFor="let result of results">
+    <app-search-item
+      *ngIf="!result.isFavorite"
+      [videoItem]="result"
+    ></app-search-item>
+  </div>
+</div>
+<ng-template> </ng-template>

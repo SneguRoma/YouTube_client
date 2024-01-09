@@ -1,0 +1,60 @@
+.header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(243, 232, 232);
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    input[type="text"] {
+      display: block;
+      flex: 1;
+      height: 30px;
+
+      border: 1px solid #ccc;
+      width: 300px;
+    }
+    button {
+      background-color: blue;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+  }
+
+  .settings {
+    margin-right: auto;
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .login-info {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    button {
+      background-color: blue;
+      color: white;
+      padding: 5px 10px;
+      margin: 15px;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+  }
+}
